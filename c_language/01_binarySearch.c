@@ -1,21 +1,29 @@
 #include <stdio.h>
 
-#define INT_VALUE_TRUE 1
-#define INT_VALUE_FALSE 0
-
+/**
+ * 
+ * Returns index of array
+ * returns non-negative integers when the value is found in the array.
+ * returns 0 when value isn't found in the array.
+ * 
+ */
 int binarySearch(int targetValue, int arr[], int arrSize) {
     int leftIndex = 0;
     int rightIndex = arrSize - 1;
     int midIndex;
 
-    if (targetValue == arr[leftIndex] || targetValue == arr[rightIndex]) {
-        return INT_VALUE_TRUE;
+    if (targetValue == arr[leftIndex]) {
+        return leftIndex;
+    }
+
+    if (targetValue == arr[rightIndex]) {
+        return rightIndex;
     }
 
     while (leftIndex <= rightIndex) {
         midIndex = (leftIndex + rightIndex) / 2;
         if (targetValue == arr[midIndex]) {
-            return INT_VALUE_TRUE;
+            return midIndex;
         } else if (targetValue > arr[midIndex]) {
             leftIndex = midIndex + 1;
         } else if (targetValue < arr[midIndex]) {
@@ -23,7 +31,7 @@ int binarySearch(int targetValue, int arr[], int arrSize) {
         }
     }
 
-    return INT_VALUE_FALSE;
+    return -255;
 }
 
 int main(int argc, char* argv[]) {
@@ -44,7 +52,7 @@ int main(int argc, char* argv[]) {
     printf("%d }\n\n", sampleTestCase[sizeof(sampleTestCase) / sizeof(int) - 1]);
 
     for (i = 0; i < (sizeof(sampleTestCase) / sizeof(int)); i++) {
-        printf("binarySearch(%d) : %s\n", sampleTestCase[i], binarySearch(sampleTestCase[i], sampleData, sizeof(sampleData) / sizeof(int)) ? "\033[0;32mFounded!\033[0m" : "\033[0;31mNot Founded!\033[0m");
+        printf("binarySearch(%d) : %s\n", sampleTestCase[i], (binarySearch(sampleTestCase[i], sampleData, sizeof(sampleData) / sizeof(int)) >= 0) ? "\033[0;32mFounded!\033[0m" : "\033[0;31mNot Founded!\033[0m");
     }
 
     return 0;
