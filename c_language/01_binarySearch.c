@@ -2,9 +2,10 @@
 
 /**
  * 
- * Returns index of array
+ * Returns index of value exists in array.
+ * 
  * returns non-negative integers when the value is found in the array.
- * returns 0 when value isn't found in the array.
+ * returns -1 when value isn't found in the array.
  * 
  */
 int binarySearch(int targetValue, int arr[], int arrSize) {
@@ -31,21 +32,21 @@ int binarySearch(int targetValue, int arr[], int arrSize) {
         }
     }
 
-    return -255;
+    return -1;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     int sampleData[] = { -12, -5, 0, 1, 4, 8, 9, 14, 65, 345, 565 };
     int sampleTestCase[] = { 9, 255, 1024, 565, -12, 8 };
     int i;
 
-    printf("sampleData = { ");
+    printf("int sampleData[11] = { ");
     for (i = 0; i < (sizeof(sampleData) / sizeof(int) - 1); i++) {
         printf("%d, ", sampleData[i]);
     }
     printf("%d }\n", sampleData[sizeof(sampleData) / sizeof(int) - 1]);
 
-    printf("sampleTestCase = { ");
+    printf("int sampleTestCase[6] = { ");
     for (i = 0; i < (sizeof(sampleTestCase) / sizeof(int) - 1); i++) {
         printf("%d, ", sampleTestCase[i]);
     }
