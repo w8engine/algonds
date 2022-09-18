@@ -17,6 +17,7 @@
  */
 int bubbleSort(int arr[], int arrLength) {
     int i;
+    int j;
     int temp;
     int orderCount = 0;
     int computationCost = 0;
@@ -25,22 +26,19 @@ int bubbleSort(int arr[], int arrLength) {
         return 0;
     }
 
-    while (orderCount != (arrLength - 1)) {
-        orderCount = 0;
-        for (i = 0; i < (arrLength - 1); i++) {
+    for (i = 0; i < (arrLength - 1); i++) {
+        for (j = 0; j < (arrLength - i - 1); j++) {
             computationCost++;
-            if (arr[i] > arr[i + 1]) {
-                temp = arr[i + 1];
-                arr[i + 1] = arr[i];
-                arr[i] = temp;
-            } else {
-                orderCount++;
+            if (arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
         }
 
         printf("try %d : { ", computationCost / (arrLength - 1) + (computationCost % (arrLength - 1) ? 1 : 0));
-        for (i = 0; i < (arrLength - 1); i++) {
-            printf("%d, ", arr[i]);
+        for (j = 0; j < (arrLength - 1); j++) {
+            printf("%d, ", arr[j]);
         } printf("%d }\n", arr[7]);
     }
 
