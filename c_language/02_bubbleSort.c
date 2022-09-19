@@ -36,10 +36,12 @@ int bubbleSort(int arr[], int arrLength) {
             }
         }
 
+        /*
         printf("try %d : { ", computationCost / (arrLength - 1) + (computationCost % (arrLength - 1) ? 1 : 0));
         for (j = 0; j < (arrLength - 1); j++) {
             printf("%d, ", arr[j]);
         } printf("%d }\n", arr[7]);
+        */
     }
 
     return computationCost;

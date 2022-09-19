@@ -2,12 +2,17 @@
 
 /**
  * 
- * Sort integer array by using bubble sort algorithm.
+ * Sort integer array by using selection sort algorithm.
  * 
  * Average Time Complexity : O(N^2)
  * Maximum(Worst) Time Complexity : O(N^2)
  * Memory Size Complexity : O(1)
  * Is not guaranteed by stability of data.
+ * 
+ * Returns computation count of loop.
+ * 
+ * Returns 0 when array isn't vallid or array's length is 0 or negative.
+ * Returns positive number whe array has been sucessfully ordered.
  * 
  */
 int selectionSort(int arr[], int arrLength) {
@@ -25,7 +30,7 @@ int selectionSort(int arr[], int arrLength) {
     for (i = 0; i < (arrLength - 1); i++) {
         minData = arr[i];
         minDataIndex = i;
-        for (j = i; j < arrLength; j++) {
+        for (j = (i + 1); j < arrLength; j++) {
             if (minData > arr[j]) {
                 minData = arr[j];
                 minDataIndex = j;
